@@ -1,0 +1,58 @@
+{
+  "name": "GetTransactionMessage",
+  "priority": 11,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/transaction-messages/[^/]+"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "_links": {
+        "self": {
+          "href": "/transaction-messages/80b08eeb-c4cc-4e5c-8d0b-15bc2e04b4dc"
+        },
+        "raw": {
+          "href": "/transaction-messages/80b08eeb-c4cc-4e5c-8d0b-15bc2e04b4dc/raw"
+        }
+      },
+      "acceptor": {
+        "acquirerId": null,
+        "city": "LONDON",
+        "country": "GBR",
+        "id": "KWGBYTEI4FL0QQQ",
+        "mcc": "5734",
+        "name": "Uber",
+        "state": "LND"
+      },
+      "accountId": "a49fdf13-62ce-4704-80bf-82f317cc215e",
+      "approvalCode": "537254",
+      "bankData": null,
+      "cardId": "bf4d1e23-0f5a-42a7-81f2-bc66f392a98c",
+      "cardType": "virtual",
+      "cardholderBillingAmount": 1.18,
+      "cardholderBillingCurrency": "GBP",
+      "createdDateTime": "2024-04-26T01:41:22.544Z",
+      "dateTime": "2024-04-24T13:39:45Z",
+      "discountAmount": null,
+      "id": "80b08eeb-c4cc-4e5c-8d0b-15bc2e04b4dc",
+      "messageType": "FINL_ADVC",
+      "network": "MASTERCARD",
+      "result": "APPROVED",
+      "subaccountId": "cb4d801e-a10a-4f42-b9de-1c51685ffd8a",
+      "traceId": null,
+      "transactionAmount": 1.45,
+      "transactionCurrency": "USD",
+      "transactionReference": "IWVQ22_2024-04-24",
+      "transactionType": "DEBIT_01",
+      "transmissionDateTime": "2024-04-25T00:00:00.000Z"
+    }
+  },
+  "metadata": {
+    "operationId": "GetTransactionMessage",
+    "bodyModel": "TransactionMessage"
+  }
+}

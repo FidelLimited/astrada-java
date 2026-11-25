@@ -1,0 +1,57 @@
+{
+  "name": "GetNetworkBulkEnrollment",
+  "priority": 11,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/network-bulk-enrollments/[^/]+"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "_links": {
+        "self": {
+          "href": "/network-bulk-enrollments/9c1f0c4e-2f0e-4a9c-9a1b-0c1d2e3f4a5b"
+        }
+      },
+      "id": "9c1f0c4e-2f0e-4a9c-9a1b-0c1d2e3f4a5b",
+      "subaccountId": "24c4f90d-ab3b-4f6e-8a1d-d251a4fcf34c",
+      "network": "MASTERCARD",
+      "bin": "51075500",
+      "binInfo": {
+        "issuerName": "Jack Henry And Associates",
+        "issuerCountry": "USA",
+        "type": "COMMERCIAL",
+        "fundingType": "CREDIT"
+      },
+      "company": {
+        "legalName": "Vertex Industries, Inc."
+      },
+      "cardAdmin": {
+        "name": "Dana Whitfield",
+        "email": "dana.whitfield@vertexind.com"
+      },
+      "bankContact": {
+        "name": "Sam Lee",
+        "email": "sam.lee@bank.example"
+      },
+      "cardCountBand": "251-1000",
+      "outreach": "astrada",
+      "consent": {
+        "acceptedAt": "2026-09-10T21:30:00.000Z",
+        "version": "kickoff-consent-v1"
+      },
+      "state": "requested",
+      "networkBulkFeedId": null,
+      "customerReferenceId": "ledgerly-customer-8842",
+      "createdAt": "2026-09-10T21:30:00.000Z",
+      "updatedAt": "2026-09-10T21:30:00.000Z"
+    }
+  },
+  "metadata": {
+    "operationId": "GetNetworkBulkEnrollment",
+    "bodyModel": "NetworkBulkEnrollment"
+  }
+}

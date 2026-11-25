@@ -1,0 +1,21 @@
+{
+  "name": "GetOpenNetworkBulkEnrollment",
+  "priority": 10,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/network-bulk-enrollments/open"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "open": false
+    }
+  },
+  "metadata": {
+    "operationId": "GetOpenNetworkBulkEnrollment",
+    "bodyModel": "NetworkBulkEnrollmentOpen"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "GetEnrollmentMethods",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/enrollment-methods"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "availableEnrollmentMethods": [
+        "cardholder-single"
+      ],
+      "bulkLikelihood": "none",
+      "singleEligible": true
+    }
+  },
+  "metadata": {
+    "operationId": "GetEnrollmentMethods",
+    "bodyModel": "EnrollmentMethodsResult"
+  }
+}

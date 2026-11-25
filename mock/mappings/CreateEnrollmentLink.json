@@ -1,0 +1,44 @@
+{
+  "name": "CreateEnrollmentLink",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/enrollment-links"
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "_links": {
+        "self": {
+          "href": "/enrollment-links/1d0a6c52-8f3e-4b7a-9c21-5e4d3b2a1f09"
+        }
+      },
+      "id": "1d0a6c52-8f3e-4b7a-9c21-5e4d3b2a1f09",
+      "kind": "cardholder",
+      "subaccountId": "6f1c2a3b-4d5e-4f60-8a7b-9c0d1e2f3a4b",
+      "startingPoint": "card",
+      "state": "active",
+      "expiresAt": "2026-11-11T18:00:00.000Z",
+      "maxUses": 1,
+      "uses": 0,
+      "starts": 0,
+      "customerReferenceId": "2b7e9d14-5c3a-4f8e-9b21-0d6c4a8e7f35",
+      "platformName": "Ledgerly",
+      "organizationName": "Vertex Industries",
+      "createdBy": {
+        "via": "api",
+        "clientId": "3f9c1e7a-2b4d-4c6e-8f0a-1b3d5e7f9a2c"
+      },
+      "createdAt": "2026-11-04T18:00:00.000Z",
+      "updatedAt": "2026-11-04T18:00:00.000Z",
+      "url": "https://sdk.sandbox.astrada.co/unified/v2/enroll.html#el1_4bT7m2QxwZ9lK1pN0vYcRfHsUeGdJaLoWiXqBnMzE3S"
+    }
+  },
+  "metadata": {
+    "operationId": "CreateEnrollmentLink",
+    "bodyModel": "EnrollmentLinkCreateResult"
+  }
+}

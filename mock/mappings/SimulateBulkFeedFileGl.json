@@ -1,0 +1,15 @@
+{
+  "name": "SimulateBulkFeedFileGl",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/simulate/ingestion/amex-gl"
+  },
+  "response": {
+    "status": 202
+  },
+  "metadata": {
+    "operationId": "SimulateBulkFeedFileGl",
+    "bodyModel": null
+  }
+}

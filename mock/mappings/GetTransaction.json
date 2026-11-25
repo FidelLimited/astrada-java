@@ -1,0 +1,61 @@
+{
+  "name": "GetTransaction",
+  "priority": 11,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/transactions/[^/]+"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "_links": {
+        "card": {
+          "href": "/cards/4d1ff59f-4286-4209-9662-92e174193562"
+        },
+        "subaccount": {
+          "href": "/subaccounts/c6d5e036-361e-4773-a514-b9496cf2d2b5"
+        },
+        "self": {
+          "href": "/transactions/8697df0c-9011-47ca-a52b-8d2a7a4ad903"
+        },
+        "messages": [
+          {
+            "href": "/transaction-messages/f4b24a0a-6a37-4ce3-8845-ddf0b604a9b4"
+          },
+          {
+            "href": "/transaction-messages/934f8701-53e3-4a2b-a000-6bb52195d2ea"
+          }
+        ]
+      },
+      "acceptor": {
+        "city": "LONDON",
+        "country": "GBR",
+        "mcc": "5734",
+        "state": "LND"
+      },
+      "cardId": "4d1ff59f-4286-4209-9662-92e174193562",
+      "cardholderBillingCurrency": "GBP",
+      "cardholderBillingHoldAmount": 0,
+      "cardholderBillingSettledAmount": 0.81,
+      "createdAt": "2024-05-01T06:41:43.810Z",
+      "descriptor": "Uber",
+      "id": "8697df0c-9011-47ca-a52b-8d2a7a4ad903",
+      "network": "MASTERCARD",
+      "status": "SETTLED",
+      "subaccountId": "c6d5e036-361e-4773-a514-b9496cf2d2b5",
+      "supersededMessageIds": [],
+      "transactionCurrency": "USD",
+      "transactionHoldAmount": 0,
+      "transactionOccurrenceDate": "2024-05-01",
+      "transactionSettledAmount": 1,
+      "updatedAt": "2024-05-02T08:41:43.810Z"
+    }
+  },
+  "metadata": {
+    "operationId": "GetTransaction",
+    "bodyModel": "Transaction"
+  }
+}

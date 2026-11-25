@@ -1,0 +1,136 @@
+name: Publish to Maven Central
+
+# Each release reaches main as one commit that sets the version in pom.xml. When main has a version
+# with no v<version> tag yet, this builds, tests, signs and publishes it to Maven Central through
+# the Central Portal (the maven-central environment holds the portal token and the signing key),
+# then tags the commit and makes the GitHub release from the CHANGELOG.md entry.
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      publish: ${{ steps.version.outputs.publish }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Java
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Is this version released yet
+        id: version
+        run: |
+          version="$(mvn -B -q --no-transfer-progress help:evaluate -Dexpression=project.version -DforceStdout)"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          if git ls-remote --exit-code --tags origin "refs/tags/v${version}" > /dev/null; then
+            echo "v${version} is already released"
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  # Build and tests run here, with no publishing secrets: no environment, no Central token, no
+  # signing key, so no test or build plugin can read them. The publish job then deploys with the
+  # tests skipped.
+  verify:
+    needs: check
+    if: needs.check.outputs.publish == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Java
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Build and test
+        run: |
+          mvn -B --no-transfer-progress install
+          mvn -B --no-transfer-progress -f testing/pom.xml verify
+
+  publish:
+    needs: [check, verify]
+    if: needs.check.outputs.publish == 'true'
+    runs-on: ubuntu-latest
+    environment: maven-central
+    permissions:
+      contents: write
+    env:
+      VERSION: ${{ needs.check.outputs.version }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Set up Java with the Central Portal server and the signing key
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          server-id: central
+          server-username: CENTRAL_TOKEN_USERNAME
+          server-password: CENTRAL_TOKEN_PASSWORD
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+
+      - name: Sign and publish (tested in the verify job)
+        env:
+          CENTRAL_TOKEN_USERNAME: ${{ secrets.CENTRAL_TOKEN_USERNAME }}
+          CENTRAL_TOKEN_PASSWORD: ${{ secrets.CENTRAL_TOKEN_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        run: |
+          # Central refuses a version twice, so a re-run after a partial publish skips what is
+          # already there (the testing artifact resolves astrada-java from Central then).
+          on_central() {
+            curl -sfI "https://repo1.maven.org/maven2/co/astrada/$1/${VERSION}/$1-${VERSION}.pom" > /dev/null
+          }
+          if on_central astrada-java; then
+            echo "astrada-java ${VERSION} is already on Central"
+            mvn -B --no-transfer-progress install -DskipTests
+          else
+            mvn -B --no-transfer-progress -P release deploy -DskipTests
+          fi
+          # The WireMock stubs artifact, same version.
+          if on_central astrada-java-testing; then
+            echo "astrada-java-testing ${VERSION} is already on Central"
+          else
+            mvn -B --no-transfer-progress -P release -f testing/pom.xml deploy -DskipTests
+          fi
+
+      - name: Tag and make the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          awk -v v="$VERSION" '
+            index($0, "## " v " ") == 1 { found = 1; next }
+            found && /^## / { exit }
+            found { print }
+          ' CHANGELOG.md > "$RUNNER_TEMP/notes.md"
+          gh release create "v${VERSION}" --target "$GITHUB_SHA" --title "v${VERSION}" \
+            --notes-file "$RUNNER_TEMP/notes.md" target/*.jar testing/target/*.jar

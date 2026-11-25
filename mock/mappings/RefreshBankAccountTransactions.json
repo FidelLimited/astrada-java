@@ -1,0 +1,23 @@
+{
+  "name": "RefreshBankAccountTransactions",
+  "priority": 11,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/bank-accounts/[^/]+/transactions/refresh"
+  },
+  "response": {
+    "status": 202,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "id": "3a8f2c1d-5e7b-4d9a-b6c8-9f0e1d2a3b4c",
+      "requestedAt": "2026-10-05T00:59:10Z",
+      "durationMs": 4210
+    }
+  },
+  "metadata": {
+    "operationId": "RefreshBankAccountTransactions",
+    "bodyModel": "BankAccountTransactionsRefreshResult"
+  }
+}

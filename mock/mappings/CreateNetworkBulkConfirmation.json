@@ -1,0 +1,46 @@
+{
+  "name": "CreateNetworkBulkConfirmation",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/network-bulk-confirmations"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "id": "0d8e5b3a-7c42-4f19-b6a0-3e1f9c2d8a74",
+      "requestId": "c3f1a7e2-5b94-4d0a-8e6f-2a9d4b7c1e35",
+      "subaccountId": "24c4f90d-ab3b-4f6e-8a1d-d251a4fcf34c",
+      "network": "MASTERCARD",
+      "bin": "51075500",
+      "grade": "high",
+      "binInfo": {
+        "issuerName": "Jack Henry And Associates",
+        "issuerCountry": "USA",
+        "type": "COMMERCIAL",
+        "fundingType": "CREDIT"
+      },
+      "company": {
+        "legalName": "Vertex Industries, Inc."
+      },
+      "cardAdmin": {
+        "name": "Dana Whitfield",
+        "email": "dana.whitfield@vertexind.com"
+      },
+      "bankContact": {
+        "name": "Sam Lee",
+        "email": "sam.lee@bank.example"
+      },
+      "state": "requested",
+      "customerReferenceId": "ledgerly-customer-8842",
+      "createdAt": "2026-10-26T16:45:00.000Z"
+    }
+  },
+  "metadata": {
+    "operationId": "CreateNetworkBulkConfirmation",
+    "bodyModel": "NetworkBulkConfirmationCreateResult"
+  }
+}

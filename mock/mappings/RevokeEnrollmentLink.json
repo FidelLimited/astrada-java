@@ -1,0 +1,41 @@
+{
+  "name": "RevokeEnrollmentLink",
+  "priority": 11,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/enrollment-links/[^/]+/revoke"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "_links": {
+        "self": {
+          "href": "/enrollment-links/8e2f4a6c-1b3d-4e5f-9a7b-2c4d6e8f0a1b"
+        }
+      },
+      "id": "8e2f4a6c-1b3d-4e5f-9a7b-2c4d6e8f0a1b",
+      "kind": "team",
+      "subaccountId": "6f1c2a3b-4d5e-4f60-8a7b-9c0d1e2f3a4b",
+      "startingPoint": "card",
+      "state": "revoked",
+      "expiresAt": "2026-11-19T10:00:00.000Z",
+      "maxUses": 50,
+      "uses": 12,
+      "starts": 12,
+      "createdBy": {
+        "via": "sdk",
+        "clientId": "5a7c9e1b-3d5f-4a6c-8e0b-2d4f6a8c0e1f"
+      },
+      "createdAt": "2026-11-05T10:00:00.000Z",
+      "updatedAt": "2026-11-07T09:30:00.000Z",
+      "revokedAt": "2026-11-07T09:30:00.000Z"
+    }
+  },
+  "metadata": {
+    "operationId": "RevokeEnrollmentLink",
+    "bodyModel": "EnrollmentLink"
+  }
+}

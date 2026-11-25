@@ -1,0 +1,28 @@
+{
+  "name": "SimulateTransactionScenario",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/simulate/transaction/scenario"
+  },
+  "response": {
+    "status": 202,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "transactions": [
+        {
+          "messageIds": [
+            "9b2e6c4a-1f3d-4e8b-9a7c-2d5f8e1b4c6a",
+            "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d"
+          ]
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "operationId": "SimulateTransactionScenario",
+    "bodyModel": "SimulateTransactionScenarioAccepted"
+  }
+}

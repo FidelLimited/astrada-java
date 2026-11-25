@@ -1,0 +1,15 @@
+{
+  "name": "DeleteBankLink",
+  "priority": 11,
+  "request": {
+    "method": "DELETE",
+    "urlPathPattern": "/bank-links/[^/]+"
+  },
+  "response": {
+    "status": 204
+  },
+  "metadata": {
+    "operationId": "DeleteBankLink",
+    "bodyModel": null
+  }
+}

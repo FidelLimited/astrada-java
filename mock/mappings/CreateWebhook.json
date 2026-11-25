@@ -1,0 +1,36 @@
+{
+  "name": "CreateWebhook",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/webhooks"
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "_links": {
+        "self": {
+          "href": "/webhooks/3a45ba7f-8d8f-4f6a-86a5-a17ea0328241"
+        }
+      },
+      "id": "3a45ba7f-8d8f-4f6a-86a5-a17ea0328241",
+      "url": "https://example-api.com/path",
+      "description": "Example of Webhook description",
+      "eventTypes": [
+        "transactionmessage.created"
+      ],
+      "subaccountId": "f297d659-c13d-4219-aeaa-e10a845140a5",
+      "createdAt": "2023-12-19T14:45:00Z",
+      "updatedAt": "2023-12-19T14:45:00Z",
+      "enabled": true,
+      "secret": "AAAAAAAAAAAAAAAAAAAAAA=="
+    }
+  },
+  "metadata": {
+    "operationId": "CreateWebhook",
+    "bodyModel": "WebhookCreateResult"
+  }
+}
