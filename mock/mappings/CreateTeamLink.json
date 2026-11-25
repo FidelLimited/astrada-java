@@ -1,0 +1,24 @@
+{
+  "name": "CreateTeamLink",
+  "priority": 11,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/subaccounts/[^/]+/team-link"
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "id": "8e2f4a6c-1b3d-4e5f-9a7b-2c4d6e8f0a1b",
+      "url": "https://sdk.sandbox.astrada.co/unified/v2/enroll.html#el1_Qm9Lx2Vt8RkZ1pW4nJ7cH0sD3fG6aY9uE2iO5rT8bN1",
+      "expiresAt": "2026-11-19T10:00:00.000Z",
+      "maxUses": 50
+    }
+  },
+  "metadata": {
+    "operationId": "CreateTeamLink",
+    "bodyModel": "TeamLink"
+  }
+}

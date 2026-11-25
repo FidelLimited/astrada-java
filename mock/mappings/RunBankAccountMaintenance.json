@@ -1,0 +1,25 @@
+{
+  "name": "RunBankAccountMaintenance",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/bank-accounts/maintenance"
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "linked": {
+        "059d5e6a-cfb1-46e6-ab84-6586582b6b58": [
+          "da28e1b8-c7a4-4575-b72f-3a88d6fe34df"
+        ]
+      }
+    }
+  },
+  "metadata": {
+    "operationId": "RunBankAccountMaintenance",
+    "bodyModel": "BankAccountMaintenanceResult"
+  }
+}

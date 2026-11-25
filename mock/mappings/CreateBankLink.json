@@ -1,0 +1,33 @@
+{
+  "name": "CreateBankLink",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/bank-links"
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "_links": {
+        "self": {
+          "href": "/bank-links/enrollment_abc123"
+        }
+      },
+      "id": "enrollment_abc123",
+      "accountId": "8f3a1b2c-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
+      "subaccountId": "50cced63-ee4e-4ff7-a469-aaa989f220f2",
+      "state": "pending",
+      "provider": "plaid",
+      "hostedLink": "https://hosted.plaid.com/link/abc123",
+      "linkExpiresAt": "2025-10-03T14:25:27.000Z",
+      "createdAt": "2025-10-03T10:25:27.069Z"
+    }
+  },
+  "metadata": {
+    "operationId": "CreateBankLink",
+    "bodyModel": "BankLink"
+  }
+}

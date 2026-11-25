@@ -1,0 +1,39 @@
+{
+  "name": "GetCardSubscription",
+  "priority": 11,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/card-subscriptions/[^/]+"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "_links": {
+        "self": {
+          "href": "/card-subscriptions/75ea3c99-6bf5-4b16-8f68-0cdc43d75806"
+        },
+        "card": {
+          "href": "/cards/5dec2c49-0aa5-4683-a317-427eb5d115f3"
+        }
+      },
+      "id": "75ea3c99-6bf5-4b16-8f68-0cdc43d75806",
+      "subaccountId": "f297d659-c13d-4219-aeaa-e10a845140a5",
+      "cardId": "5dec2c49-0aa5-4683-a317-427eb5d115f3",
+      "customerReferenceId": "5dec2c49-0aa5-4683-a317-427eb5d115f3",
+      "networkBulkFeedId": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "enrollmentType": "cardholder-single",
+      "state": "active",
+      "effectiveDate": "2024-12-20T14:45:00Z",
+      "expirationDate": "2025-06-19T14:45:00Z",
+      "createdAt": "2024-12-19T14:45:00Z",
+      "updatedAt": "2024-12-19T14:45:00Z"
+    }
+  },
+  "metadata": {
+    "operationId": "GetCardSubscription",
+    "bodyModel": "CardSubscription"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "UpdateBankAccount",
+  "priority": 11,
+  "request": {
+    "method": "PATCH",
+    "urlPathPattern": "/bank-accounts/[^/]+"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "id": "3a8f2c1d-5e7b-4d9a-b6c8-9f0e1d2a3b4c",
+      "cardIds": [
+        "5dec2c49-0aa5-4683-a317-427eb5d115f3"
+      ],
+      "state": "active",
+      "updatedAt": "2025-10-03T11:00:00.000Z"
+    }
+  },
+  "metadata": {
+    "operationId": "UpdateBankAccount",
+    "bodyModel": "BankAccountUpdateResult"
+  }
+}

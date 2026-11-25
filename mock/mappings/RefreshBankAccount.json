@@ -1,0 +1,23 @@
+{
+  "name": "RefreshBankAccount",
+  "priority": 11,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/bank-accounts/[^/]+/refresh"
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "id": "3a8f2c1d-5e7b-4d9a-b6c8-9f0e1d2a3b4c",
+      "hostedLink": "https://hosted.plaid.com/link/refresh123",
+      "expiresAt": "2025-10-03T14:55:42.000Z"
+    }
+  },
+  "metadata": {
+    "operationId": "RefreshBankAccount",
+    "bodyModel": "BankAccountRefreshResult"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "UnlockCardVerificationAttempts",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/card-verifications/unlock"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "unlocked": true,
+      "cleared": true
+    }
+  },
+  "metadata": {
+    "operationId": "UnlockCardVerificationAttempts",
+    "bodyModel": "CardVerificationUnlockResult"
+  }
+}

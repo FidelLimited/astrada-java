@@ -1,0 +1,15 @@
+{
+  "name": "SimulateBulkFeedFileSmartdata",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/simulate/ingestion/smartdata"
+  },
+  "response": {
+    "status": 202
+  },
+  "metadata": {
+    "operationId": "SimulateBulkFeedFileSmartdata",
+    "bodyModel": null
+  }
+}

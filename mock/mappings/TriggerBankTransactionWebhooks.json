@@ -1,0 +1,26 @@
+{
+  "name": "TriggerBankTransactionWebhooks",
+  "priority": 11,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/bank-transactions/[^/]+/webhooks"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "message": "Processed 1 transactions",
+      "emitted": 2,
+      "resent": 0,
+      "matched": 1,
+      "skipped": 0,
+      "failed": []
+    }
+  },
+  "metadata": {
+    "operationId": "TriggerBankTransactionWebhooks",
+    "bodyModel": "BankTransactionWebhooksResult"
+  }
+}

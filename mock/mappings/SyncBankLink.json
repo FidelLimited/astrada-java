@@ -1,0 +1,21 @@
+{
+  "name": "SyncBankLink",
+  "priority": 11,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/bank-links/[^/]+/sync"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "message": "Transactions synced successfully"
+    }
+  },
+  "metadata": {
+    "operationId": "SyncBankLink",
+    "bodyModel": "BankLinkSyncResult"
+  }
+}

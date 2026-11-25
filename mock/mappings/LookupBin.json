@@ -1,0 +1,29 @@
+{
+  "name": "LookupBin",
+  "priority": 10,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/bin-lookup"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "bin": "411111",
+      "network": "VISA",
+      "type": "COMMERCIAL",
+      "fundingType": "CREDIT",
+      "cardCategory": "PURCHASING",
+      "cardFundingType": "CREDIT",
+      "issuerName": "Example Bank",
+      "issuerCountry": "USA",
+      "issuerRegion": "NA"
+    }
+  },
+  "metadata": {
+    "operationId": "LookupBin",
+    "bodyModel": "BinLookup"
+  }
+}

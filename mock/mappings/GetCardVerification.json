@@ -1,0 +1,39 @@
+{
+  "name": "GetCardVerification",
+  "priority": 11,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/card-verifications/3ds/[^/]+"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/hal+json"
+    },
+    "jsonBody": {
+      "_links": {
+        "self": {
+          "href": "/card-verifications/3ds/9fab1bea-bc1e-4757-bd47-479422e5983b"
+        },
+        "steps": {
+          "href": "/card-verifications/3ds/9fab1bea-bc1e-4757-bd47-479422e5983b/steps"
+        },
+        "currentStep": {
+          "href": "/card-verifications/3ds/9fab1bea-bc1e-4757-bd47-479422e5983b/steps/fingerprint"
+        }
+      },
+      "id": "9fab1bea-bc1e-4757-bd47-479422e5983b",
+      "subaccountId": "f297d659-c13d-4219-aeaa-e10a845140a5",
+      "cardId": "8309b5f8-d5d8-49bb-9001-38bf1bb0f1e4",
+      "type": "3DS",
+      "currentStepId": "fingerprint",
+      "state": "in-progress",
+      "createdAt": "2024-01-04T18:53:32.000Z",
+      "updatedAt": "2023-01-04T10:55:12.000Z"
+    }
+  },
+  "metadata": {
+    "operationId": "GetCardVerification",
+    "bodyModel": "CardVerification"
+  }
+}

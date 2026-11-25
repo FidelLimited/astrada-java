@@ -1,0 +1,49 @@
+{
+  "name": "GetBankLink",
+  "priority": 11,
+  "request": {
+    "method": "GET",
+    "urlPathPattern": "/bank-links/[^/]+"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "_links": {
+        "self": {
+          "href": "/bank-links/enrollment_792dcb7d"
+        },
+        "bankAccounts": [
+          {
+            "href": "/bank-accounts/3a8f2c1d-5e7b-4d9a-b6c8-9f0e1d2a3b4c"
+          }
+        ]
+      },
+      "id": "enrollment_792dcb7d",
+      "accountId": "8f3a1b2c-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
+      "subaccountId": "1fcb895e-9217-4a6f-9d10-5a7dcef86c11",
+      "state": "completed",
+      "hostedLink": null,
+      "linkExpiresAt": null,
+      "completedAt": "2025-10-03T10:55:42.000Z",
+      "bankAccounts": [
+        {
+          "id": "3a8f2c1d-5e7b-4d9a-b6c8-9f0e1d2a3b4c",
+          "name": "Credit Card",
+          "mask": "4001",
+          "type": "credit",
+          "cardIds": [
+            "5dec2c49-0aa5-4683-a317-427eb5d115f3"
+          ]
+        }
+      ],
+      "createdAt": "2025-10-03T10:25:27.069Z"
+    }
+  },
+  "metadata": {
+    "operationId": "GetBankLink",
+    "bodyModel": "BankLink"
+  }
+}

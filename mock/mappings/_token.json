@@ -1,0 +1,22 @@
+{
+  "name": "login",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/auth/realms/[^/]+/protocol/openid-connect/token"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "access_token": "mock-access-token",
+      "token_type": "Bearer",
+      "expires_in": 3600
+    }
+  },
+  "metadata": {
+    "operationId": "login"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "SimulateTransaction",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/simulate/transactions"
+  },
+  "response": {
+    "status": 202,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "messageId": "9b2e6c4a-1f3d-4e8b-9a7c-2d5f8e1b4c6a"
+    }
+  },
+  "metadata": {
+    "operationId": "SimulateTransaction",
+    "bodyModel": "SimulateTransactionAccepted"
+  }
+}

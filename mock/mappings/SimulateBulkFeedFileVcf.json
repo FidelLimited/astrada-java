@@ -1,0 +1,15 @@
+{
+  "name": "SimulateBulkFeedFileVcf",
+  "priority": 10,
+  "request": {
+    "method": "POST",
+    "urlPathPattern": "/simulate/ingestion/vcf"
+  },
+  "response": {
+    "status": 202
+  },
+  "metadata": {
+    "operationId": "SimulateBulkFeedFileVcf",
+    "bodyModel": null
+  }
+}
